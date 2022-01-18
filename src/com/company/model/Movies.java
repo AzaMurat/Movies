@@ -1,6 +1,11 @@
-package com.company;
+package com.company.model;
+
+import com.company.model.Cast;
+import com.company.model.Director;
+import com.company.service.SortAble;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Movies {
 
@@ -10,7 +15,7 @@ public class Movies {
     private Director director;
     private List<Cast> cast;
 
-    void printCast() {
+    public void printCast() {
         int counter = 1;
         for (Cast s : cast) {
             System.out.printf("%s)   Fullname: %s\n", counter, s.getFullName());
@@ -39,4 +44,13 @@ public class Movies {
         return director;
     }
 
+    @Override
+    public String toString() {
+        return "Названия:"+"|" + name + " \n " +
+                "Год:"+"|" + year + "\n" +
+                "Описание:"+"|" + description +"\n"+
+                "Директор:"+"|" + director + "\n" +
+                "В ролях:"+"|" + cast + "\n"
+                +"---------------------------"+"\n";
+    }
 }
